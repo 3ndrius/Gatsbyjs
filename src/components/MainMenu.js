@@ -1,14 +1,27 @@
-import React, { Component } from 'react';
+import React, {Component} from "react"
+import Link from "gatsby-link"
 
-import { Link } from 'gatsby-link';
+class MainMenu extends Component {
+    render() {
 
-export default class MainMenu extends Component {
-  render() {
-    return (
-      <div>
-          <h1> Menu </h1>
-        
-      </div>
-    )
-  }
-};
+        const data = this.props.menu.allWordpressWpApiMenusMenusItems.edges[0].node.items
+        console.log(data)
+
+        return (
+            <div>
+                <h1>Main Menu</h1>
+                <ul>
+                    {data.map((item,index) =>
+                        <li key={index}>
+                            <Link to={item.url}>
+                                {item.title}
+                            </Link>
+                        </li>
+                    )}
+                </ul>
+            </div>
+        )
+    }
+}
+
+export default MainMenu

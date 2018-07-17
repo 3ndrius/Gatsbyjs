@@ -2,22 +2,21 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 
-import Header from '../components/header'
-
+import Header from '../components/Header'
 import './index.css'
-import MainMenu from './../components/MainMenu';
 
-const Layout = ({ children, data }) => (
+import MainMenu from '../components/MainMenu'
+
+const TemplateWrapper = ({ children,  data }) => (
   <div>
     <Helmet
-      title={data.site.siteMetadata.title}
+      title="Gatsby Default Starter"
       meta={[
         { name: 'description', content: 'Sample' },
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header siteTitle={data.site.siteMetadata.title} />
-    <MainMenu siteTitle={data.site.siteMetadata.title} />
+    <Header />
     <div
       style={{
         margin: '0 auto',
@@ -26,23 +25,32 @@ const Layout = ({ children, data }) => (
         paddingTop: 0,
       }}
     >
+        <MainMenu menu={data} />
       {children()}
     </div>
   </div>
 )
 
-Layout.propTypes = {
+TemplateWrapper.propTypes = {
   children: PropTypes.func,
 }
 
-export default Layout
+export default TemplateWrapper
 
 export const query = graphql`
-  query SiteTitleQuery {
-    site {
-      siteMetadata {
-        title
-      }
-    }
+  query LayoutQuery {
+        allWordpressWpApiMenusMenusItems{
+            edges{
+                node{
+                    id
+                    name
+                    items{
+                        title
+                        url
+                        object_slug
+                    }
+                }
+            }
+        }
   }
 `
