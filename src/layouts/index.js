@@ -16,7 +16,8 @@ const TemplateWrapper = ({ children,  data }) => (
         { name: 'keywords', content: 'sample, something' },
       ]}
     />
-    <Header />
+   
+    <MainMenu menu={data} />
     <div
       style={{
         margin: '0 auto',
@@ -25,7 +26,7 @@ const TemplateWrapper = ({ children,  data }) => (
         paddingTop: 0,
       }}
     >
-        <MainMenu menu={data} />
+        
       {children()}
     </div>
   </div>

@@ -7,10 +7,10 @@ export default ({ data }) => {
       <h1>My WordPress Blog</h1>
       <h4>Posts</h4>
       {data.allWordpressPost.edges.map(({ node }, index) => (
-        <div key={index}>
+        <div key={index} className="posts-wrap">
           
           <Link to={`post/${node.slug}`}>
-          <h1>{node.title}</h1>
+          <h1 className="post-title">{node.title}</h1>
           </Link>
           <div dangerouslySetInnerHTML={{ __html: node.excerpt }} />
           

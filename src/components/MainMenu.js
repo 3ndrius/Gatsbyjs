@@ -8,11 +8,16 @@ class MainMenu extends Component {
         console.log(data)
 
         return (
-            <div>
-                <h1>Main Menu</h1>
-                <ul>
+            <div className="menu-container"
+            style={{
+                background: 'rebeccapurple',
+                marginBottom: '1.45rem',
+              }}
+            >
+               
+                <ul className="menu-ul">
                     {data.map((item,index) =>
-                        <li key={index}>
+                        <li key={index} className="menu-li">
                             <Link to={item.url}>
                                 {item.title}
                             </Link>
