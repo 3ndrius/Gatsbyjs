@@ -15,6 +15,8 @@ const IndexPage = ({ data, pathContext }) => {
     const nextUrl = (index + 1).toString();
 
     console.log(group)
+    console.log( "prev" + previousUrl)
+    console.log("next" + nextUrl)
 
     return (
         <div>
@@ -36,6 +38,7 @@ const IndexPage = ({ data, pathContext }) => {
             </div>
             <div className="nextLink">
                 <NavLink test={last} url={"/posts/" + nextUrl} text="Go to Next Page" />
+                {console.log(last)}
             </div>
         </div>
     );

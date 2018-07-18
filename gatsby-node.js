@@ -22,7 +22,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
 
                 pages.forEach(edge => {
                     createPage({
-                        path: `/${edge.node.slug}/`,
+                        path: `page/${edge.node.slug}/`,
                         component: slash(pageTemplate),
                         context: {
                             id: edge.node.id,
@@ -37,7 +37,7 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
                     edges: posts,
                     createPage: createPage,
                     pageTemplate: "src/templates/posts.js",
-                    pageLength: 3,
+                    pageLength: 6,
                     pathPrefix: "posts"
                 })
 
