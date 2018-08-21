@@ -1,6 +1,5 @@
 
 'use strict'
-
 module.exports = `
     {
         allWordpressPage {
@@ -13,7 +12,6 @@ module.exports = `
                 }
             }
         }
-        
         allWordpressPost {
             edges {
                 node {
